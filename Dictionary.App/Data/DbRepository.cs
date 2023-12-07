@@ -63,6 +63,11 @@ internal static class DbRepository
         }
     }
 
+    public static Word? Get(string word)
+    {
+        return GetByPersianMeaning(word) ?? GetByEnglishMeaning(word);
+    }
+
     public static Word? GetByPersianMeaning(string persianMeaning)
     {
         return _words.Find(w => w.PersianMeaning == persianMeaning);

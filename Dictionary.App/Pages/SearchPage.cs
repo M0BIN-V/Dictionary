@@ -1,4 +1,5 @@
 ﻿using Dictionary.App.Data;
+using Dictionary.App.Tools;
 
 namespace Dictionary.App.Pages
 {
@@ -18,20 +19,21 @@ namespace Dictionary.App.Pages
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
+
             if (result is null)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("word not found !");
+                ConsoleTools.WriteError("Word not found !");
             }
             else
             {
                 Console.WriteLine($"English : {result.EnglishMeaning}");
                 Console.WriteLine($"Persian : {result.PersianMeaning}");
+
+                Console.WriteLine("====================================");
+                Console.ResetColor();
+                Console.WriteLine("Press 'ENTER' to return to the menu");
+                Console.ReadLine();
             }
-            Console.WriteLine("===================");
-            Console.ResetColor();
-            Console.WriteLine("Press 'ENTER' to return to the menu");
-            Console.ReadLine();
         }
     }
 }
